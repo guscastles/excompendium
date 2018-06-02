@@ -8,7 +8,7 @@ defmodule Operation do
 
   defp add([], acc), do: acc
 
-  def factorial(num) when num == 0, do: 1
+  def factorial(num) when num <= 1, do: 1
 
   def factorial(num), do: num * factorial(num - 1)
 
