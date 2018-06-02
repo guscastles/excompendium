@@ -1,6 +1,6 @@
 # Excompendium
 
-**TODO: Add description**
+A port to Elixir for the Compendium IBIS tool
 
 ## Installation
 
@@ -18,4 +18,3 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/excompendium](https://hexdocs.pm/excompendium).
-

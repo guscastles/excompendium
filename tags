@@ -1,0 +1,27 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+DataBaseOperation	lib/dboper.ex	/^defmodule DataBaseOperation do$/;"	m
+Erlang	lib/erlang.ex	/^defmodule Erlang do$/;"	m
+ErlangTest	test/erlang_test.exs	/^defmodule ErlangTest do$/;"	m
+MixProject	mix.exs	/^defmodule Erlang.MixProject do$/;"	m
+OperTest	test/oper_test.exs	/^defmodule OperTest do$/;"	m
+Operation	lib/oper.ex	/^defmodule Operation do$/;"	m
+Operation	misc/simple_add.exs	/^defmodule Operation do$/;"	m
+add	lib/oper.ex	/^  def add([]), do: nil$/;"	f
+add	lib/oper.ex	/^  def add([h|t]), do: add(t, h)$/;"	f
+add	lib/oper.ex	/^  defp add([], acc), do: acc$/;"	f
+add	lib/oper.ex	/^  defp add([h|t], acc), do: add(t, acc + h)$/;"	f
+add	misc/simple_add.exs	/^  def add([], acc) do$/;"	f
+add	misc/simple_add.exs	/^  def add([h|t], acc) do$/;"	f
+application	mix.exs	/^  def application do$/;"	f
+deps	mix.exs	/^  defp deps do$/;"	f
+factorial	lib/oper.ex	/^  def factorial(0), do: 1$/;"	f
+factorial	lib/oper.ex	/^  def factorial(num), do: num * factorial(num - 1)$/;"	f
+greets the world	test/erlang_test.exs	/^  test "greets the world" do$/;"	t
+hello	lib/erlang.ex	/^  def hello do$/;"	f
+project	mix.exs	/^  def project do$/;"	f
+write	lib/dboper.ex	/^  def write(label, value) do$/;"	f
