@@ -21,4 +21,19 @@ defmodule OperTest do
     assert DataBaseOperation.write("Hello", 6) == :ok
   end
 
+  test "Multiplication Test" do
+    assert Operation.mul(0, 0) == 0
+    assert Operation.mul(1, 0) == 0
+    assert Operation.mul(1, 5) == 5
+    assert Operation.mul(2, 5) == 10
+  end
+
+  test "Number to the Power Test" do
+    assert Operation.pow(0, 0) == nil
+    assert Operation.pow(1, 0) == 1
+    assert Operation.pow(1, 5) == 1
+    assert Operation.pow(5, 2) == 25
+    assert Operation.pow(3, 3) == 27
+  end
+
 end
