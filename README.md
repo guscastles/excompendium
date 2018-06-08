@@ -23,7 +23,7 @@ be found at [https://hexdocs.pm/excompendium](https://hexdocs.pm/excompendium).
 
 ### Rationale
 
-The intent of this project is to create a fully operational Dialogue Mapping tool, following the same great pattern estabilished by
+The intent of this project is to create a fully operational Dialogue Mapping tool, following the same great pattern established by
 the Compendium tool. Using a different technology from the original Java world, the wishful stack tech is as follows:
 
 * Functional programming style, using Elixir and the Phoenix web framework.
