@@ -26,7 +26,11 @@ defmodule Excompendium.MixProject do
     [
       {:csv, "~> 2.1.1"},
       {:coverex, "~> 1.4.10", only: :test},
-      {:excoveralls, "~> 0.8", only: :test}
+      {:excoveralls, "~> 0.8", only: :test},
+      {:ex_doc, "~> 0.16", only: :dev, runtime: false},
+      {:erlport, "~> 0.9"},
+      {:postgrex, ">=0.0.0"},
+      {:ecto, "~> 2.1"}
     ]
   end
 end

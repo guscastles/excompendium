@@ -33,7 +33,6 @@ defmodule OperTest do
   end
 
   test "Number to the Power Test" do
-    assert Operation.pow(0, 0) == nil
     assert Operation.pow(1, 0) == 1
     assert Operation.pow(1, 5) == 1
     assert Operation.pow(5, 2) == 25
