@@ -9,6 +9,9 @@ defmodule List2 do
   defp _index([h|t], element, position) when h != element, do: _index(t, element, position + 1)
 
   def reverse([]), do: [] 
+  @doc """
+  This is being used to test the debugging features or Elixir
+  """
   def reverse([h|t]), do: _reverse(t, [h])
   defp _reverse([], accum), do: accum 
   defp _reverse([h|t], accum), do: _reverse(t, [h] ++ accum)

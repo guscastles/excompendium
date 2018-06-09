@@ -12,7 +12,8 @@ defmodule Operation do
   def factorial(num) when num <= 1, do: 1
   def factorial(num), do: num * factorial(num - 1)
   def pow(0, 0), do: raise "Base and exponent cannot be zero simultaneously"
-  def pow(0, exponent) when exponent != 0, do: 0
-  def pow(base, 0) when base != 0, do: 1
+  def pow(0, exponent), do: 0
+  def pow(base, 0), do: 1
   def pow(base, exp), do: base * pow(base, exp - 1)
+  def mul(a, b), do: a * b
 end
