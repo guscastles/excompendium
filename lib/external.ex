@@ -11,6 +11,6 @@ defmodule External do
   end
 
   def external_call(pid, message) do
-    pid |> :python.call(:"hello.test", :hello, [message])
+    pid |> :python.call(:"external.test", :hello, [message])
   end
 end
