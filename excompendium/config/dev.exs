@@ -52,7 +52,7 @@ config :phoenix, :stacktrace_depth, 20
 config :excompendium, Excompendium.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "Tom@rrow1snotToday",
+  password: "Tom@rrow1sNotToday",
   database: "excompendium_dev",
   hostname: "localhost",
   pool_size: 10
