@@ -2,7 +2,7 @@ defmodule TreeHandler do
   @docmodule """
   Module for the functions for handling the nodes in a tree.
   """
-  import List, only: [last: 1, flatten: 1]
+  import List, only: [last: 1, flatten: 1, replace_at: 3]
   import Enum, only: [map: 2]
 
   def add_node(node, new_id) do
@@ -42,7 +42,11 @@ defmodule TreeHandler do
   defp _search([h|t], id, func) do
     search(h, id, func) || _search(t, id, func)
   end
-  
+
+  def search_and_add([], _, _) do
+    []
+  end
+
   def search_and_add(node, id, new_id) when not is_list(node) do
     search_and_add([node|node.nodes], id, new_id)
   end
@@ -50,7 +54,23 @@ defmodule TreeHandler do
   def search_and_add([h|t], id, new_id) do
     cond do
       h.id == id -> h.nodes |> put_in(h.nodes ++ [%TreeNode{id: new_id}])
-      true -> h.nodes |> put_in(h.nodes ++ [search_and_add(t, id, new_id)])
+      index(h.nodes, id) > -1 -> put_in(h.nodes, replace_at(h.nodes, index(h.nodes, id), search_and_add([search(h, id)], id, new_id)))
+      true -> search_and_add(t, id, new_id)
+    end
+  end
+
+  def index(list, id) do
+    _index(list, id, 0)
+  end
+
+  defp _index([], _, counter) do
+    -1
+  end
+
+  defp _index([h|t], id, counter) do
+    cond do
+      h.id == id -> counter
+      true -> _index(t, id, counter + 1)
     end
   end
 

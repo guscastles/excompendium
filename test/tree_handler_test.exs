@@ -23,10 +23,12 @@ defmodule TreeHandlerTest do
   test "adds one node to a given node not in the root" do
     root = search_and_add(search_and_add(create_tree().root, 0, 2), 0, 3)
     new_root = search_and_add(root, 3, 4)
+    new_new_root = search_and_add(new_root, 4, 5)
     require IEx; IEx.pry
     assert first(new_root.nodes).id == 2
     assert last(new_root.nodes).id == 3
-    assert check_node_id(search_and_add(new_root, 4, 5), 5)
+    assert check_node_id(new_new_root, 2)
+    assert check_node_id(new_new_root, 5)
   end
 
   test "updates the root's nodes, adding one more" do
@@ -40,6 +42,12 @@ defmodule TreeHandlerTest do
     root = search_and_add(search_and_add(search_and_add(create_tree().root, 0, 2), 0, 3), 3, 4)
     assert search(root, 1) == nil
     [0, 2, 3, 4] |> Enum.map(&(assert search(root, &1) != nil))
+  end
+
+  test "returns the index of a given TreeNode element in a list" do
+    list = [%TreeNode{id: 2}, %TreeNode{id: 1}]
+    assert index(list, 1) == 1
+    assert index(list, 2) == 0
   end
 
   defp check_node_id(node, id) do
