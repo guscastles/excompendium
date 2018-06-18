@@ -43,34 +43,24 @@ defmodule TreeHandler do
     search(h, id, func) || _search(t, id, func)
   end
 
+  def search_and_add(node, id, new_id) when not is_list(node) do
+    cond do
+      node.id == id -> _update_node(node, new_id)
+      node.nodes == [] -> node
+      true -> node.nodes |> put_in(search_and_add(node.nodes, id, new_id))
+    end
+  end
+
   def search_and_add([], _, _) do
     []
   end
 
-  def search_and_add(node, id, new_id) when not is_list(node) do
-    search_and_add([node|node.nodes], id, new_id)
+  def search_and_add([h|t], id, new_id) do
+    [search_and_add(h, id, new_id)] ++ search_and_add(t, id, new_id)
   end
 
   defp _update_node(node, new_id) do
     node.nodes |> put_in(node.nodes ++ [%TreeNode{id: new_id}])
-  end
-
-  def search_and_add([h|t], id, new_id) do
-    cond do
-      h.id == id -> _update_node(h, new_id)
-      true -> search_and_add(t, id, new_id) #h.nodes |> put_in(search_and_add_to_nodes(h, h.nodes, id, new_id))
-    end
-  end
-
-  def search_and_add_to_nodes(parent, [], _, _) do
-    []
-  end
-
-  def search_and_add_to_nodes(parent, [child|children], id, new_id) do
-    cond do
-      child.id == id -> _update_node(child, new_id)
-      true -> child.nodes |> put_in(search_and_add_to_nodes(parent, children, id, new_id))
-    end
   end
 
   def index(list, id) do
