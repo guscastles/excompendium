@@ -25,7 +25,6 @@ defmodule TreeHandlerTest do
     new_root = search_and_add(root, 2, 4)
     new_new_root = search_and_add(new_root, 3, 5)
     new_new_new_root = search_and_add(new_new_root, 5, 6)
-    require IEx; IEx.pry
     assert first(new_root.nodes).id == 2
     assert last(new_root.nodes).id == 3
     assert check_node_id(new_new_root, 2)

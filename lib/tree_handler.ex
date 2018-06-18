@@ -47,16 +47,16 @@ defmodule TreeHandler do
     cond do
       node.id == id -> _update_node(node, new_id)
       node.nodes == [] -> node
-      true -> node.nodes |> put_in(search_and_add(node.nodes, id, new_id))
+      true -> node.nodes |> put_in(_search_and_add(node.nodes, id, new_id, []))
     end
   end
 
-  def search_and_add([], _, _) do
-    []
+  defp _search_and_add([], _, _, accum) do
+    accum
   end
 
-  def search_and_add([h|t], id, new_id) do
-    [search_and_add(h, id, new_id)] ++ search_and_add(t, id, new_id)
+  defp _search_and_add([h|t], id, new_id, accum) do
+    _search_and_add(t, id, new_id, accum ++ [search_and_add(h, id, new_id)])
   end
 
   defp _update_node(node, new_id) do
