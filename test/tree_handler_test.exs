@@ -2,6 +2,7 @@ defmodule TreeHandlerTest do
   use ExUnit.Case
   import List, only: [first: 1, last: 1]
   import TreeHandler
+  import TreeHandler.Search
 
   test "creates a testing tree" do
     tree = create_tree()
